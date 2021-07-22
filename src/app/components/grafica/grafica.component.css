@@ -1,0 +1,94 @@
+* {
+    margin: 0px;
+    padding: 0px;
+}
+/*Menú*/
+#header {
+    margin-top: 0px;
+    width:700px;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+ul, ol {
+    list-style:none;
+}
+
+.nav li a {
+    background-color:rgb(252, 252, 252);
+    color:rgb(0, 0, 0);
+    padding:15px 60px;
+    border-radius: 10px;
+}
+
+
+#menu {
+    height: 30px;
+    width: 35px;
+    margin-left: 0px;
+    margin-right: 20px;
+}
+
+#menut {
+    font-size: 30px;
+    margin-right: 20px;
+}
+
+#menul {
+    height: 30px;
+    width: 35px;
+    margin-left: 20px;
+    margin-right: 1px;
+}
+
+/*Opciones del Menú links*/
+#menuopciones {
+    width: 290px; 
+    height: 630px;
+    background-color: white; 
+    margin-left: 0px;
+    margin-top: 30px;
+    border-radius: 10px;
+    font-size: 40px;
+    text-align: left;
+}
+
+
+#inicio {
+    margin-top: 30px;
+    margin-left: 0px;
+    width: 280px;
+    height: 200px;
+    text-align: center;
+}
+
+#inicioa {
+    color: black;
+}
+
+#registro {
+    margin-top: 0px;
+    margin-left: 0px;
+    width: 280px;
+    
+    text-align: center;
+}
+
+#registroa {
+    color: black;
+}
+
+/*Grafico de temperatura*/
+#grafico {
+    background-color:rgb(252, 252, 252);
+    width: 1000px;
+    height: 500px;
+    margin-top: 100px;
+    box-shadow: 2px 7px 10px #666;
+    border-radius: 50px;
+    text-align: center;
+}
+
+#graficoT {
+    font-size: 30px;
+    margin-top: 30px;
+}

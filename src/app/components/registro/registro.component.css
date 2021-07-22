@@ -1,0 +1,114 @@
+* {
+    margin: 0px;
+    padding: 0px;
+}
+/*Menú*/
+#header {
+    margin-top: 0px;
+    width:700px;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+ul, ol {
+    list-style:none;
+}
+
+.nav li a {
+    background-color:rgb(252, 252, 252);
+    color:rgb(0, 0, 0);
+    padding:15px 60px;
+    border-radius: 10px;
+}
+
+
+#menu {
+    height: 30px;
+    width: 35px;
+    margin-left: 0px;
+    margin-right: 20px;
+}
+
+#menut {
+    font-size: 30px;
+    margin-right: 20px;
+}
+
+#menul {
+    height: 30px;
+    width: 35px;
+    margin-left: 20px;
+    margin-right: 1px;
+}
+
+/*Opciones del Menú links*/
+#menuopciones {
+    width: 290px; 
+    height: 630px;
+    background-color: white; 
+    margin-left: 0px;
+    margin-top: 30px;
+    border-radius: 10px;
+    font-size: 40px;
+}
+
+
+#inicio {
+    margin-top: 30px;
+    margin-left: 0px;
+    width: 280px;
+    height: 200px;
+    text-align: center;
+}
+
+#inicioa {
+    color: black;
+}
+
+#grafico {
+    margin-top: 0px;
+    margin-left: 0px;
+    width: 280px;
+    
+    text-align: center;
+}
+
+#graficoa {
+    color: black;
+}
+
+
+#botonr {
+    padding: 10px 80px;
+    font-size: 20px;
+    border-radius: 10px;
+    background-color: rgb(88, 170, 224);
+}
+
+.tempsCentro{
+    width: 100%;
+    height: fit-content;
+    border-radius: 1%;
+    box-shadow: 2px 7px 10px #666;
+    display: block;
+}
+.centerTable{
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+
+/*Colors input search*/
+
+/* label focus color */
+.input-field input[type=text]:focus + label {
+    color: rgb(88, 170, 224);
+}
+/* label underline focus color */
+.input-field input[type=text]:focus {
+    border-bottom: 1px solid rgb(88, 170, 224);
+    box-shadow: 0 1px 0 0 rgb(88, 170, 224);
+}
+.input-field .prefix.active {
+    color: rgb(88, 170, 224);
+  }

@@ -1,0 +1,163 @@
+<!--Menú-->
+<div id="header">
+    <ul class="nav">
+        <li><a id="menut"><img src="../assets/cloud2.png" alt="alternatetext" id="menu"><b>Menú</b><i class="material-icons" id="menul">menu</i></a>
+        </li>
+    </ul>
+</div>
+
+
+<!--Opciones del menú-->
+<div class="row center">
+    <div class="col s3 m3 l3">
+            <div class="container" id="menuopciones">
+                    <p id="registro"><a routerLink='registro' id="registroa">Registro de Temperaturas</a></p>
+                    <p id="grafico"><a routerLink='grafica' id="graficoa">Grafico de Temperaturas</a></p>
+                    <br><br>
+                    <button id="botonr" (click)="getTemps()"><b>Recargar Datos</b></button>
+            </div>
+    </div>
+    <!--Parte de temperatura-->
+    <div class="col s9 m9 l9">
+        <ng-container *ngFor="let temps of temperaturasService.temperaturas; let i=index; let last=last;">
+            <div *ngIf="last == true">
+                <!--Si es en optimas condiciones-->
+                <div *ngIf="temps.temperatura > 18 && temps.temperatura < 26">
+                    <div class='containerCircleArribaInactivo'>
+                        <div class="middleCircleArribaActivo">
+                            <img src="../assets/hielo.png" style="position: relative;" width="30%">
+                        </div>
+                    </div>
+                </div>
+                <!--Si la temperatura ya supera la óptima-->
+                <div *ngIf="temps.temperatura > 26">
+                    <div class='containerCircleArribaInactivo'>
+                        <div class="middleCircleArribaInactivo">
+                            <img src="../assets/hielo.png" style="position: relative;" width="30%">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </ng-container>
+        <br>
+        <div class="container white tempsCentro">
+            <br>
+            <h1>Temperatura Actual:</h1>
+            <br><br>
+            <!--ACTUAL TEMPERATURE-->
+            <ng-container *ngFor="let temps of temperaturasService.temperaturas; let i=index; let last=last;">
+                <div *ngIf="last == true">
+                    <h1 style="font-size: 100px;"><strong>{{temps.temperatura}} C°</strong></h1>
+                </div>
+            </ng-container>
+            <br><br><br>
+            <!--CIRCLES MIDDLE-->
+            <div class="row">
+                <div class="col s4 m4 l4 centerCol">
+                    <ng-container *ngFor="let temps of temperaturasService.temperaturas; let i=index; let last=last;">
+                        <div class="greyCircle"></div>
+                        <div *ngIf="temps.temperatura > 18 && temps.temperatura < 27 && last == true">
+                            <div id="circleGreen"></div>
+                        </div>
+                    </ng-container>
+                </div>
+                <div class="col s4 m4 l4 centerCol">
+                    <ng-container *ngFor="let temps of temperaturasService.temperaturas; let i=index; let last=last;">
+                        <div class="greyCircle"></div>
+                        <div *ngIf="temps.temperatura > 27 && temps.temperatura < 28 && last == true">
+                            <div id="circleYellow"></div>
+                        </div>
+                    </ng-container>
+                </div>
+                <div class="col s4 m4 l4 centerCol">
+                    <ng-container *ngFor="let temps of temperaturasService.temperaturas; let i=index; let last=last;">
+                        <div class="greyCircle"></div>
+                        <div *ngIf="temps.temperatura > 28 && last == true">
+                            <div id="circleRed"></div>
+                        </div>
+                    </ng-container>
+                </div>
+            </div>
+            <!--STATUS-->
+            <h1>Status:</h1>
+            <br>
+            <ng-container *ngFor="let temps of temperaturasService.temperaturas; let i=index; let last=last;">
+                <div *ngIf="temps.temperatura > 18 && temps.temperatura < 27 && last == true">
+                    <h1 style="font-size: 100px;"><strong>Óptima</strong></h1>
+                </div>
+            </ng-container>
+            <ng-container *ngFor="let temps of temperaturasService.temperaturas; let i=index; let last=last;">
+                <div *ngIf="temps.temperatura > 27 && temps.temperatura < 28 && last == true">
+                    <h1 style="font-size: 100px;"><strong>Alerta</strong></h1>
+                </div>
+            </ng-container>
+            <ng-container *ngFor="let temps of temperaturasService.temperaturas; let i=index; let last=last;">
+                <div *ngIf="temps.temperatura > 28 && last == true">
+                    <h1 style="font-size: 100px;"><strong>Crítico</strong></h1>
+                </div>
+            </ng-container>
+        </div>
+        <!--Medio circulo Abajo-->
+
+
+        <ng-container *ngFor="let temps of temperaturasService.temperaturas; let i=index; let last=last;">
+            <div *ngIf="last == true">
+                <!--Si la temperatura es mayor-->
+                <div *ngIf="temps.temperatura > 26">
+                    <div class='containerCircleArribaInactivo'>
+                        <div class="middleCircleAbajoActivo">
+                            <img src="../assets/sol.png" style="position: relative;" width="30%">
+                        </div>
+                    </div>
+                </div>
+                <!--Si la températura es óptima-->
+                <div *ngIf="temps.temperatura < 26">
+                    <div class='containerCircleArribaInactivo'>
+                        <div class="middleCircleAbajoInactivo">
+                            <img src="../assets/sol.png" style="position: relative;" width="30%">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </ng-container>
+    </div>
+</div>
+<!--
+    Tabla
+    <div class="col s12 m6 l6">
+        <div class="card white">
+          <div class="card-content black-text">
+            <span class="card-title">Lista de temperaturas</span>
+            <table>
+              <thead>
+                <th>Fecha</th>
+                <th>Hora</th>
+                <th>Temperatura</th>
+              </thead>
+              <tbody>
+  
+                CON TODO ESTO NOS TRAEMOS EL ULTIMO REGISTRO DE LA API DE LOS USUARIOS, APLCIAR EN EL DE LA TEMPERATURA
+  
+                Indicamos que sera un ciclo
+                <tr *ngFor="let temps of temperaturasService.temperaturas; let i=index; let last=last;">
+                  -Haremos un ciclo para irnos trayendo los datos de la API
+                  <td *ngIf="last == true">{{ temps.fecha}}</td>
+                  <td>{{ users.name}}</td>
+                  <td>{{ i }}</td>
+                  <td *ngIf="last == true">{{ temps.hora}}</td>
+                  <td *ngIf="last == true">{{ temps.temperatura}}</td>
+                  <td>{{ users.email }}</td>
+                  Desicion if dependiendo el tipo de usuario que sea
+                  
+                  <td *ngIf="users.type == 1">{{ 'Admin' }}</td>
+                  <td *ngIf="users.type == 2">{{ 'Operador' }}</td>
+                  <td *ngIf="users.type == 3">{{ 'Técnico' }}</td>
+                  <td *ngIf="users.type == 4">{{ 'Cliente' }}</td>
+                  <td *ngIf="users.type == 5">{{ 'Guardia' }}</td>
+                  <td class="center">{{ users.points }}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>-->

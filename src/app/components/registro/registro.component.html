@@ -1,0 +1,64 @@
+<!--Menú-->
+<div id="header">
+    <ul class="nav">
+        <li><a id="menut"><img src="../assets/cloud2.png" alt="alternatetext" id="menu"><b>Menú</b><i class="material-icons" id="menul">menu</i></a>
+        </li>
+    </ul>
+</div>
+
+<!--Opciones del menú-->
+<div class="row center">
+    <div class="col s3 m3 l3">
+            <div class="container" id="menuopciones">
+                    <p id="inicio"><a routerLink='home' id="inicioa">Inicio</a></p>
+                    <p id="grafico"><a routerLink='grafica' id="graficoa">Grafico de Temperaturas</a></p>
+            </div>
+    </div>
+    <!--Parte de temperatura-->
+    <div class="col s9 m9 l9">
+        <br>
+        <div class="container white tempsCentro">
+            <br>
+            <h4><b id="registroT">Registro de Temperaturas Totales</b></h4>
+            <br><br>
+            <button id="botonr" (click)="getTemps()"><b>Recargar Datos</b></button>
+            <br><br>
+            <!--Buscador-->
+            <div class="row">
+                <div class="input-field col s3 m3 l3">
+                  <i class="material-icons prefix">search</i>
+                  <input id="searchInput" type="text" (keyup)="getTempsByDate()">
+                  <label for="searchInput">Buscar por fecha</label>
+                </div>
+            </div>
+            <br>
+            <!--Tabla-->
+            <div class="centerTable">
+                <div class="card white" style="width: 95%;">
+                    <div class="card-content black-text">
+                    <span class="card-title"><strong>Lista de temperaturas</strong></span>
+                        <table>
+                            <thead>
+                                <th class="center">Fecha</th>
+                                <th class="center">Hora</th>
+                                <th class="center">Temperatura</th>
+                                <th class="center">Estado</th>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let temps of temperaturasService.temperaturas; let i=index; let last=last;">
+                                    <td class="center">{{ temps.fecha}}</td>
+                                    <td class="center">{{ temps.hora}}</td>
+                                    <td class="center">{{ temps.temperatura}} C°</td>
+                                    <td class="green-text center" *ngIf="temps.temperatura < 18"><strong>{{'ÓPTIMO'}}</strong></td>
+                                    <td class="green-text center" *ngIf="temps.temperatura > 18 && temps.temperatura < 27"><strong>{{'ÓPTIMO'}}</strong></td>
+                                    <td class="yellow-text center" *ngIf="temps.temperatura > 27 && temps.temperatura < 28"><strong>{{'ALERTA'}}</strong></td>
+                                    <td class="red-text center" *ngIf="temps.temperatura > 28"><strong>{{'CRÍTICO'}}</strong></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
