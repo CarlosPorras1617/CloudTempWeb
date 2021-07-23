@@ -76,19 +76,22 @@ ul, ol {
 #registroa {
     color: black;
 }
-
-/*Grafico de temperatura*/
-#grafico {
-    background-color:rgb(252, 252, 252);
-    width: 1000px;
-    height: 500px;
-    margin-top: 100px;
+.tempsCentro{
+    width: 100%;
+    height: fit-content;
+    border-radius: 1%;
     box-shadow: 2px 7px 10px #666;
-    border-radius: 50px;
-    text-align: center;
+    display: block;
 }
-
-#graficoT {
-    font-size: 30px;
-    margin-top: 30px;
+.centerTable{
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+.centerGrafica{
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    display: flex;
 }

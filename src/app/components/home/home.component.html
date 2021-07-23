@@ -22,7 +22,7 @@
         <ng-container *ngFor="let temps of temperaturasService.temperaturas; let i=index; let last=last;">
             <div *ngIf="last == true">
                 <!--Si es en optimas condiciones-->
-                <div *ngIf="temps.temperatura > 18 && temps.temperatura < 26">
+                <div *ngIf="temps.temperatura > 18 && temps.temperatura < 27">
                     <div class='containerCircleArribaInactivo'>
                         <div class="middleCircleArribaActivo">
                             <img src="../assets/hielo.png" style="position: relative;" width="30%">
@@ -30,7 +30,7 @@
                     </div>
                 </div>
                 <!--Si la temperatura ya supera la óptima-->
-                <div *ngIf="temps.temperatura > 26">
+                <div *ngIf="temps.temperatura > 27">
                     <div class='containerCircleArribaInactivo'>
                         <div class="middleCircleArribaInactivo">
                             <img src="../assets/hielo.png" style="position: relative;" width="30%">
@@ -97,13 +97,12 @@
                 </div>
             </ng-container>
         </div>
+
         <!--Medio circulo Abajo-->
-
-
         <ng-container *ngFor="let temps of temperaturasService.temperaturas; let i=index; let last=last;">
             <div *ngIf="last == true">
                 <!--Si la temperatura es mayor-->
-                <div *ngIf="temps.temperatura > 26">
+                <div *ngIf="temps.temperatura > 27">
                     <div class='containerCircleArribaInactivo'>
                         <div class="middleCircleAbajoActivo">
                             <img src="../assets/sol.png" style="position: relative;" width="30%">
@@ -111,7 +110,7 @@
                     </div>
                 </div>
                 <!--Si la températura es óptima-->
-                <div *ngIf="temps.temperatura < 26">
+                <div *ngIf="temps.temperatura < 27">
                     <div class='containerCircleArribaInactivo'>
                         <div class="middleCircleAbajoInactivo">
                             <img src="../assets/sol.png" style="position: relative;" width="30%">

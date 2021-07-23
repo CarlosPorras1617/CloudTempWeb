@@ -7,19 +7,52 @@
 </div>
 
 <!--Opciones del menú-->
-<div class="row">
-    <div class="col s2 m2 l2">
+<div class="row center">
+    <div class="col s3 m3 l3">
             <div class="container" id="menuopciones">
                     <p id="inicio"><a routerLink='home'  id="inicioa">Inicio</a></p>
                     <p id="registro"><a routerLink='registro' id="registroa">Resgistro de Temperaturas</a></p>
             </div>
     </div>
-    <!--Registro de temperatura-->
-    <div class="col s10 m10 l10">
-        <div class="container" id="grafico">
-            <h4><b id="graficoT">Gráfica de temperaturas</b></h4>
-            <!--Parte Logica-->
-            
+
+    <!--Body-->
+    <div class="col s9 m9 l9">
+        <br>
+        <div class="container white tempsCentro">
+            <br>
+            <h4><b id="registroT">Gráfica de temperatura actual</b></h4>
+            <br><br>
+            <!--Grafica-->
+            <div class="centerGrafica">
+                <div id="chartContainer" style="height: 370px; width: 80%;"></div>
+            </div>
+            <!--<button id="botonr" (click)="getTemps()"><b>Recargar Datos</b></button>-->
+            <br><br>
+            <!--Tabla-->
+            <div class="centerTable">
+                <div class="card white" style="width: 95%;">
+                    <div class="card-content black-text">
+                        <span class="card-title"><strong>Lista de temperaturas críticas o en alerta del dia de hoy</strong></span>
+                        <table>
+                            <thead>
+                                <th class="center">Fecha</th>
+                                <th class="center">Hora</th>
+                                <th class="center">Temperatura</th>
+                                <th class="center">Estado</th>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let temps of temperaturasService.temperaturas; let i=index; let last=last;">
+                                    <td class="center" *ngIf="temps.fecha == this.getActualDate() && temps.temperatura > 27">{{ temps.fecha}}</td>
+                                    <td class="center" *ngIf="temps.fecha == this.getActualDate() && temps.temperatura > 27">{{ temps.hora}}</td>
+                                    <td class="center" *ngIf="temps.fecha == this.getActualDate() && temps.temperatura > 27">{{ temps.temperatura}} C°</td>
+                                    <td class="yellow-text center" *ngIf="temps.temperatura > 27 && temps.temperatura < 28 && temps.fecha == this.getActualDate()"><strong>{{'ALERTA'}}</strong></td>
+                                    <td class="red-text center" *ngIf="temps.temperatura > 28 && temps.fecha == this.getActualDate()"><strong>{{'CRÍTICO'}}</strong></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </div>
