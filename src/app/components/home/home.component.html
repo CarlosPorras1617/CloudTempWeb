@@ -11,8 +11,9 @@
 <div class="row center">
     <div class="col s3 m3 l3">
             <div class="container" id="menuopciones">
-                    <p id="registro"><a routerLink='registro' id="registroa">Registro de Temperaturas</a></p>
-                    <p id="grafico"><a routerLink='grafica' id="graficoa">Grafico de Temperaturas</a></p>
+                    <a id="registro" href="/registro" class="brand-logo black-text">Registro de Temperaturas</a>
+                    <br><br>
+                    <a id="grafico" href="/grafica" class="brand-logo black-text">Gráfico de Temperaturas</a>
                     <br><br>
                     <button id="botonr" (click)="getTemps()"><b>Recargar Datos</b></button>
             </div>
