@@ -51,10 +51,9 @@
                                     <td class="center">{{ temps.fecha}}</td>
                                     <td class="center">{{ temps.hora}}</td>
                                     <td class="center">{{ temps.temperatura}} C°</td>
-                                    <td class="green-text center" *ngIf="temps.temperatura < 18"><strong>{{'ÓPTIMO'}}</strong></td>
-                                    <td class="green-text center" *ngIf="temps.temperatura > 18 && temps.temperatura < 27"><strong>{{'ÓPTIMO'}}</strong></td>
-                                    <td class="yellow-text center" *ngIf="temps.temperatura > 27 && temps.temperatura < 28"><strong>{{'ALERTA'}}</strong></td>
-                                    <td class="red-text center" *ngIf="temps.temperatura > 28"><strong>{{'CRÍTICO'}}</strong></td>
+                                    <td class="green-text center" *ngIf="temps.temperatura < this.tempAlerta"><strong>{{'ÓPTIMO'}}</strong></td>
+                                    <td class="yellow-text center" *ngIf="temps.temperatura >= this.tempAlerta && temps.temperatura <= this.tempCritica"><strong>{{'ALERTA'}}</strong></td>
+                                    <td class="red-text center" *ngIf="temps.temperatura > this.tempCritica"><strong>{{'CRÍTICO'}}</strong></td>
                                 </tr>
                             </tbody>
                         </table>

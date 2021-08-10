@@ -15,8 +15,14 @@ declare var CanvasJS: any;
   providers:[DatePipe, TemperaturasService]
 })
 export class GraficaComponent implements OnInit {
-
-  constructor(private datePipe: DatePipe, public temperaturasService: TemperaturasService) { }
+  tempOptima;
+  tempAlerta;
+  tempCritica;
+  constructor(private datePipe: DatePipe, public temperaturasService: TemperaturasService) { 
+    this.tempOptima = 18,
+    this.tempAlerta = 20;
+    this.tempCritica = 23;
+   }
 
   ngOnInit(): void {
     this.getTemps();
@@ -39,18 +45,18 @@ export class GraficaComponent implements OnInit {
       //for to cicle all temps an types
       for(var i=0; i< this.temperaturasService.temperaturas.length; i++){
         var temp = this.temperaturasService.temperaturas as Temperaturas[];
-        if(temp[i].temperatura < 18 && temp[i].fecha == dateFormat){
+        if(temp[i].temperatura < this.tempAlerta && temp[i].fecha == dateFormat){
           temperaturaOptima++;
           //menores.push(temp[i].temperatura);
         }
-        else if(temp[i].temperatura >18 && temp[i].temperatura < 27 && temp[i].fecha == dateFormat){
+        /*else if(temp[i].temperatura > this.tempOptima && temp[i].temperatura <= this.tempCritica && temp[i].fecha == dateFormat){
           temperaturaOptima++;
           //menores.push(temp[i].temperatura);
-        }
-        else if(temp[i].temperatura >27 && temp[i].temperatura < 28 && temp[i].fecha == dateFormat){
+        }*/
+        else if(temp[i].temperatura >= this.tempAlerta && temp[i].temperatura <= this.tempCritica && temp[i].fecha == dateFormat){
           temperaturaMedia++;
         }
-        else if(temp[i].temperatura >28 && temp[i].fecha == dateFormat){
+        else if(temp[i].temperatura > this.tempCritica && temp[i].fecha == dateFormat){
           temperaturaAlta++;
         }
       }

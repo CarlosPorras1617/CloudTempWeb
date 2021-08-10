@@ -43,11 +43,11 @@
                             </thead>
                             <tbody>
                                 <tr *ngFor="let temps of temperaturasService.temperaturas; let i=index; let last=last;">
-                                    <td class="center" *ngIf="temps.fecha == this.getActualDate() && temps.temperatura > 27">{{ temps.fecha}}</td>
-                                    <td class="center" *ngIf="temps.fecha == this.getActualDate() && temps.temperatura > 27">{{ temps.hora}}</td>
-                                    <td class="center" *ngIf="temps.fecha == this.getActualDate() && temps.temperatura > 27">{{ temps.temperatura}} C°</td>
-                                    <td class="yellow-text center" *ngIf="temps.temperatura > 27 && temps.temperatura < 28 && temps.fecha == this.getActualDate()"><strong>{{'ALERTA'}}</strong></td>
-                                    <td class="red-text center" *ngIf="temps.temperatura > 28 && temps.fecha == this.getActualDate()"><strong>{{'CRÍTICO'}}</strong></td>
+                                    <td class="center" *ngIf="temps.fecha == this.getActualDate() && temps.temperatura >= this.tempAlerta">{{ temps.fecha}}</td>
+                                    <td class="center" *ngIf="temps.fecha == this.getActualDate() && temps.temperatura >= this.tempAlerta">{{ temps.hora}}</td>
+                                    <td class="center" *ngIf="temps.fecha == this.getActualDate() && temps.temperatura > this.tempAlerta">{{ temps.temperatura}} C°</td>
+                                    <td class="yellow-text center" *ngIf="temps.temperatura >= this.tempAlerta && temps.temperatura <= this.tempCritica && temps.fecha == this.getActualDate()"><strong>{{'ALERTA'}}</strong></td>
+                                    <td class="red-text center" *ngIf="temps.temperatura > this.tempCritica && temps.fecha == this.getActualDate()"><strong>{{'CRÍTICO'}}</strong></td>
                                 </tr>
                             </tbody>
                         </table>

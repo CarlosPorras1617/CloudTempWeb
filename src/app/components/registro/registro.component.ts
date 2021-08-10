@@ -12,8 +12,14 @@ import { Temperaturas } from 'src/app/models/temperaturas';
   providers: [ TemperaturasService ]
 })
 export class RegistroComponent implements OnInit {
-
-  constructor(public temperaturasService: TemperaturasService) { }
+  tempOptima;
+  tempAlerta;
+  tempCritica;
+  constructor(public temperaturasService: TemperaturasService) { 
+    this.tempOptima = 18,
+    this.tempAlerta = 20;
+    this.tempCritica = 23;
+   }
 
   ngOnInit(): void {
     //init
