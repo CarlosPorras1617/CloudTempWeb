@@ -13,7 +13,7 @@ export class TemperaturasService {
   
   //constructor
   constructor(private http: HttpClient) { 
-    //inicializar
+    //init
     this.temperaturas = [];
    }
 

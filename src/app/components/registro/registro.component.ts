@@ -34,9 +34,9 @@ export class RegistroComponent implements OnInit {
   }
 
   getTempsByDate(){
-    //le decimos que agarraremos un texto de html que coincida con el input de seachinput
+    //search input method
     var searchText = (<HTMLInputElement>document.getElementById("searchInput")).value;
-    //que filtre la tabla
+    //filter
     if(searchText != ""){
       var filtered_array = this.temperaturasService.temperaturas.filter(function(value){
         return value.fecha.toUpperCase().includes(searchText.toUpperCase())
